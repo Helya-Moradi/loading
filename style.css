@@ -1,0 +1,122 @@
+body {
+	margin: 0;
+	height: 100vh;
+	background-color: #e6b400;
+	color: #131319;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.loading {
+	--size: 120px;
+	--duration: 8s;
+	--circle-size: 50px;
+	--line-size: 15px;
+
+	position: relative;
+	width: var(--size);
+	height: var(--size);
+
+	.circle-wrapper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		transform: rotateZ(0);
+
+		&:nth-child(2) { transform: rotateZ(90deg); }
+		&:nth-child(3) { transform: rotateZ(180deg); }
+
+		.circle {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: var(--circle-size);
+			height: var(--circle-size);
+			border: var(--line-size) solid currentColor;
+			animation: animate var(--duration) linear infinite;
+			box-sizing: border-box;
+			border-radius: 100px;
+		}
+
+		&:nth-child(1) .circle { animation-delay: calc(var(--duration) * 0.0833 * 2); }
+		&:nth-child(2) .circle { animation-delay: calc(var(--duration) * 0.0833); }
+	}
+}
+
+@keyframes animate {
+	0% {
+		width: var(--circle-size);
+		height: var(--circle-size);
+		top: 0;
+		left: 0;
+	}
+	4.17% {
+		width: 100%;
+		height: var(--circle-size);
+		top: 0;
+		left: 0;
+	}
+	8.33% {
+		width: var(--circle-size);
+		height: var(--circle-size);
+		top: 0;
+		left: calc(100% - var(--circle-size));
+	}
+	25% {
+		width: var(--circle-size);
+		height: var(--circle-size);
+		top: 0;
+		left: calc(100% - var(--circle-size));
+	}
+	29.17% {
+		width: var(--circle-size);
+		height: 100%;
+		top: 0;
+		left: calc(100% - var(--circle-size));
+	}
+	33.33% {
+		width: var(--circle-size);
+		height: var(--circle-size);
+		top: calc(100% - var(--circle-size));
+		left: calc(100% - var(--circle-size));
+	}
+	50% {
+		width: var(--circle-size);
+		height: var(--circle-size);
+		top: calc(100% - var(--circle-size));
+		left: calc(100% - var(--circle-size));
+	}
+	54.17% {
+		width: 100%;
+		height: var(--circle-size);
+		top: calc(100% - var(--circle-size));
+		left: 0;
+	}
+	58.33% {
+		width: var(--circle-size);
+		height: var(--circle-size);
+		top: calc(100% - var(--circle-size));
+		left: 0;
+	}
+	75% {
+		width: var(--circle-size);
+		height: var(--circle-size);
+		top: calc(100% - var(--circle-size));
+		left: 0;
+	}
+	79.17% {
+		width: var(--circle-size);
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+	83.33% {
+		width: var(--circle-size);
+		height: var(--circle-size);
+		top: 0;
+		left: 0;
+	}
+}
